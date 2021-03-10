@@ -1,22 +1,10 @@
-# How I Met Your Mother
-![HIMYM](https://matthewsworld.me/img/logo-himym.jpg)
+# RESPONSIVE SIDEBAR
 
-**Description:** Streaming de HIMYM. Aqui você assiste a série e o site guarda seu progresso para sempre voltar de onde parou, além de poder marcar seus favoritos.
+## About
+Sidebar responsivo, para Dashboard. Com todo o código escrito à mão, usando apenas HTML, CSS e JavaScript.
+Abaixo está a referência do youtube, para quem vão os créditos de desenvolvimento.
 
-**Link:** [Acesse o Site.](https://www.matthewsworld.me/himym)
+## REFERENCES
+**Link:** [YOUTUBE](https://www.youtube.com/watch?v=C6227evfBig&feature=youtu.be)
 
-## Technology
-
-- HTML + CSS3
-- JS + JQuery
-- Bootstrap
-- PHP
-- MySQL
-
-## Features
-
-- [ ] Listagem de Favoritos
-
-## Developed by
-
-[Mateus Brandão](https://github.com/matthewsbrandan).
+**Link:** [BOX_ICONS](https://boxicons.com/usage/#import-css)

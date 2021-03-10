@@ -1,0 +1,395 @@
+/* ===== GOOGLE FONTS ===== */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
+
+/* ===== VARIABLES CSS ===== */
+:root{
+    --header-height: 3rem;
+    --nav-width: 68px;
+
+    /* ===== Colors ===== */
+    --first-color: #22223B;
+    --first-color-light: #AFA5D9;
+    --white-color: #F7F6FB;
+
+    /* ===== Font and Typography ===== */
+    --body-font: 'Nunito', sans-serif;
+    --normal-font-size: 1rem;
+
+    /* ===== z index ===== */    
+    --z-fixed: 100;
+}
+
+/* ===== BASE ===== */
+*,::before,::after{ box-sizing: border-box; }
+
+::-webkit-scrollbar { width: 6px; height: 6px; background: #1C1C35; } /* width */
+::-webkit-scrollbar-track { background: #1C1C35; border-radius: 5px; } /* Track */
+::-webkit-scrollbar-thumb { background: #22223B; border-radius: 5px; } /* Handle */
+::-webkit-scrollbar-thumb:hover { background: #3c374e; } /* Handle on hover */
+
+body{
+    position: relative;
+    margin: var(--header-height) 0 0 0;
+    padding: 0 1rem;
+    height: calc(100vh - 4rem);
+
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    transition: .5s;
+    background-color: #1C1C35;
+    color: #4A4E69;
+}
+
+a{ text-decoration: none; }
+
+/* ===== HEADER ===== */
+.header{
+    width: 100%;
+    height: var(--header-height);
+    position: fixed;
+    top: 0;
+    left: 0;
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    padding: 0 1rem;
+    background-color: rgba(255, 255, 255, 0);
+    /* border: 1px solid #151528; */
+
+    z-index: var(--z-fixed);
+    
+    transition: .5s;
+}
+.header__toggle{
+    color: var(--white-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+.header__img{
+    width: 35px;
+    height: 35px;
+    
+    display: flex;
+    justify-content: center;
+
+    border-radius: 50%;
+    overflow: hidden;
+}
+.header__img img{
+    width: 40px;
+}
+.header_opacity{
+    opacity: 0;
+    transition: opacity .6s;
+}
+.header_opacity:hover{
+    opacity: 1;
+}
+#videoCurrent{
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;                
+}
+#videoCurrent a{
+    display: flex;
+    align-items: center;
+    cursor:pointer;
+    color: white;
+    transition: color .6s;
+}
+#videoCurrent a:hover{
+    color: #aaa;
+}
+#videoCurrent h4{
+    color: white;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+/* ===== NAV ===== */
+.l-navbar{
+    position: fixed;
+    top: 0;
+    left: -30%;
+    
+    width: var(--nav-width);
+    /* width: calc(var(--nav-width) + 156px); */
+    height: 100vh;
+
+    background-color: var(--first-color);
+    
+    padding: .5rem 1rem 0 0;
+    
+    transition: .5s;
+
+    overflow-y: auto;
+
+    z-index: var(--z-fixed);
+}
+.nav{
+    height: 100%;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    overflow: hidden;
+}
+
+.nav__logo, .nav__link {
+    display: grid;
+    grid-template-columns: max-content max-content;
+    align-items: center;
+    column-gap: 1rem;
+
+    padding: .5rem 0 .5rem 1.5rem;
+}
+.nav__logo{
+    margin-bottom: 2rem;
+}
+.nav__logo-icon{
+    font-size: 1.25rem;
+    color: var(--white-color);
+}
+.nav__logo-name{
+    color: var(--white-color);
+    font-weight: 700px;
+}
+
+.nav__link{
+    position: relative;
+    
+    color: var(--first-color-light);
+    
+    margin-bottom: 1.5rem;
+    
+    transition: .3s;
+}
+.nav__link:hover{ color: var(--white-color); }
+.nav__icon{ font-size: 1.25rem; }
+/* Show navbar movil */
+.show{ left: 0; }
+
+/*  Add padding body movil */
+.body-pd{ padding-left: calc(var(--nav-width) + 1rem); }
+
+/* Active links */
+.active{
+    color: var(--white-color);
+}
+.active::before{
+    content: '';
+    position: absolute;
+    left: 0;
+
+    width: 2px;
+    height: 32px;
+
+    background-color: var(--white-color);
+}
+
+/* ===== MEDIA QUERIES ===== */
+@media screen and (min-width: 768px){
+    body{ 
+        margin: calc(var(--header-height) + 1rem) 0 0 0;
+        padding-left: calc(var(--nav-width) + 2rem);
+    }
+
+    .header{
+        height: calc(var(--header-height) + 1rem);
+        padding: 0 2rem 0 calc(var(--nav-width) + 2rem);
+    }
+    .header__img{
+        width: 40px;
+        height: 40px;
+    }
+    .header__img img{ width: 45px; }
+    .l-navbar{
+        left: 0;
+        padding: 1rem 1rem 0 0;
+    }
+    #playContainer{
+        left: var(--nav-width) !important;
+    }
+    /* Snow navbar desktop */
+    .show{ width: calc(var(--nav-width) + 156px); }
+
+    /* Add padding body desktop */
+    .body-pd{ padding-left: calc(var(--nav-width) + 188px); }
+}
+
+
+/* BODY ============================== */
+#currentContainer h1{
+    text-align: center;
+}
+#currentContainer #progressContainer{
+    display: flex;
+    background: rgba(250,250,250,.1);
+    border: 1px solid #999;
+    
+    height: .6rem;
+    min-width: 18rem;
+
+    margin-bottom: .6rem;
+    border-radius: 4px;
+}
+#currentContainer #progressBar{
+    display: block;
+    height: 100%;
+    width: 1%;
+
+    background: var(--white-color);
+    border-radius: 4px;
+}
+#currentContainer button{
+    padding: .8rem 5rem;
+    margin-top: 2rem;
+
+    color: white;
+    background: rgba(250,250,250,.02);
+    border: 1px solid white;
+    border-radius: 5px;
+
+    cursor: pointer;
+    transition: background .6s;
+}
+#currentContainer button:hover{
+    background: rgba(250,250,250,.4);
+}
+#currentContainer #progressCard{
+    display: none;
+}
+#currentContainer #progressCard > div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    margin-top: 3rem;
+    padding: 2rem 1rem;
+
+    box-shadow: 0 0 20px rgba(150,150,190,.1);
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255,.2);
+}
+#currentContainer #progressCard > div input{
+    min-width: 18rem;
+}
+#currentContainer #progressCard > div > div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+#currentContainer #progressCard > div > div button{
+    color: rgba(255, 255, 255,.6);
+    border: 1px solid rgba(255, 255, 255,.2);
+
+    padding: .5rem 0;
+    
+    text-align: center;
+    width: 8rem;
+}
+#currentContainer #progressCard > div > div button:first-child{
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+#currentContainer #progressCard > div > div button:last-child{
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.cardContainer{
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    width: 100%;
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-image:linear-gradient(to bottom right, rgba(247, 246, 251,1),rgba(247, 246, 251,.6));
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(255, 255, 255,.1);
+
+    padding: .5rem;
+    margin: .5rem;
+
+    width: 20rem;
+    height: 12rem;
+
+    cursor: pointer;
+    transition: box-shadow .6s;
+}
+.card:hover{
+    box-shadow: 5px 5px 20px rgba(255, 255, 255,.1);
+}
+.card h2{
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+.card span{
+    margin-bottom: 1rem;
+}
+#playContainer{
+    background: #000;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+.video-player{
+    height: 100%;
+    width: 100%;
+
+}
+#episodesContainer #seasonContainer{
+    display: flex;
+    margin-bottom: 1.2rem;
+}
+#episodesContainer #seasonContainer #selectSeason{
+    text-align: center;
+    margin: .2rem;
+    padding: .8rem .2rem;
+    width: 8rem;
+    background: transparent;
+    border: 1px solid #999;
+    border-radius: 5px;
+    color: white;
+}
+#episodesContainer #seasonContainer #selectSeason option{
+    background: #22223B;
+    border: none;
+}
+#episodesContainer #seasonContainer button{
+    margin: .2rem;
+    width: 8rem;
+    background: transparent;
+    border: 1px solid #999;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+
+    transition: .6s;
+}
+#episodesContainer #seasonContainer button:hover{
+    background: rgba(250,250,250,.4);   
+}
